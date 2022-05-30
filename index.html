@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>웨이브(wavve)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="top">
+            <a href="#">로그인</a>
+            <span>|</span>
+            <a href="#">이용권</a>
+            <span>|</span>
+            <a href="#">이벤트</a>
+        </nav>
+        <div class="hr"></div>  
+        <nav class="main">
+            <a class="logo" href="index.html">
+                <img src="images/ui/logo_wavve.png" alt="wavve">
+            </a>
+            <ul class="menu">
+                <li class="item link active">
+                    <a class="btn" href="index.html">홈</a>
+                </li>
+                <li class="item list">
+                    <button class="btn">카테고리</button>
+                    <ul class="submenu">
+                        <li><a href="#">전체 카테고리 보기</a></li>
+                        <div class="hr"></div>
+                        <li class="active"><p>추천 메뉴</p></li>
+                        <li><a href="#">드라마</a></li>
+                        <li><a href="#">예능</a></li>
+                        <li><a href="#">영화</a></li>
+                        <li><a href="#">영화플러스</a></li>
+                        <li><a href="#">해외시리즈</a></li>
+                        <li><a href="#">프로야구</a></li>
+                        <li><a href="#">ORIGINAL</a></li>
+                        <li><a href="#">CLASSIC</a></li>
+                    </ul>
+                </li>
+                <li class="item link">
+                    <a class="btn" href="#">LIVE</a>
+                </li>
+                <li class="item link">
+                    <a class="btn" href="#">MY</a>
+                </li>
+            </ul>
+            <button class="btn search">검색하기</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="imgslide">
+            <div class="imgs">
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_181234.jpg" alt="스탠드">
+                    <img src="images/imgslide/title_181234.png" alt="스탠드">
+                </a>
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_031429.jpg" alt="서약">
+                    <img src="images/imgslide/title_031429.png" alt="서약">
+                </a>
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_200113.jpg" alt="리스타트">
+                    <img src="images/imgslide/title_200113.png" alt="리스타트">
+                </a>
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_184831.jpg" alt="크레이지 러브">
+                    <img src="images/imgslide/title_184831.png" alt="크레이지 러브">
+                </a>
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_142757.jpg" alt="내일">
+                    <img src="images/imgslide/title_142757.png" alt="내일">
+                </a>
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_165721.jpg" alt="어게인 마이 라이프">
+                    <img src="images/imgslide/title_165721.png" alt="어게인 마이 라이프">
+                </a>
+                <a class="item" href="#">
+                    <img src="images/imgslide/banner_103350.jpg" alt="이상한 나라의 수학자">
+                    <img src="images/imgslide/title_103350.png" alt="이상한 나라의 수학자">
+                </a>
+            </div>
+            <div class="buttons nav">
+                <button class="btn prev"></button>
+                <button class="btn next"></button>
+            </div>
+            <div class="buttons page">
+                <button class="btn play stop"></button>
+                <button class="btn dot"></button>
+                <button class="btn dot"></button>
+                <button class="btn dot"></button>
+                <button class="btn dot"></button>
+                <button class="btn dot"></button>
+                <button class="btn dot"></button>
+                <button class="btn dot"></button>
+            </div>
+        </section>
+        <!-- dramalist -->
+        <div id="listend"></div>
+
+    </main>
+
+    <div id="floatbox">
+        <button class="btn scrolltop" style="display:none;">
+            <img src="images/ui/ui_scrolltop.png">
+        </button>
+    </div>
+
+    <footer>
+        <nav id="newsslide" class="top">
+            <button class="btn notice">공지사항</button>
+            <div class="news">
+                <a class="item" href="#">
+                    원스토어 마켓 app 업데이트
+                </a>
+                <a class="item" href="#">
+                    wavve오리지널 'EXO의 사다리 타고 세계여행3' 시청 이벤트 안내
+                </a>
+                <a class="item" href="#">
+                    [안드로이드 app] 구글플레이결제 적용 안내 (2022.4.1 업데이트)
+                </a>
+            </div>
+            <button class="btn nav prev">
+                <img src="images/ui/ui_prev.png">
+            </button>
+            <button class="btn nav next">
+                <img src="images/ui/ui_next.png">
+            </button>
+        </nav>
+        <div class="hr"></div>
+        <nav class="menu">
+            <div class="info">
+                <div class="links">
+                    <a href="#">회사소개</a>
+                    <a href="#">인재채용</a>
+                    <a href="#">서비스 소개</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보 처리방침</a>
+                    <a href="#">고객센터</a>
+                </div>
+                <div class="copyright">
+                    콘텐츠웨이브 주식회사 | 대표이사 이태현 | 고객센터 1599-3709 (평일 09:00~18:00 / 점심시간 12:00~13:00 / 주말 및 공휴일 휴무)<br>
+                    사업자등록번호 220-88-38020 | 호스팅서비스제공자 : 마이크로소프트 유한회사<br>
+                    통신판매업 신고번호 : 제 2021-서울영등포-0585호 | 통신판매업 정보 공개 : <a href="#">http://www.ftc.go.kr/bizCommPop.do?wrkr_no=220-88-38020</a><br>
+                    서울특별시 영등포구 여의나루로 60 포스트타워 19층 | 전자우편주소 : <a href="mailto:helpdesk@wavve.com">helpdesk@wavve.com</a><br>
+                    Copyright© 콘텐츠웨이브(주) All rights reserved.
+                </div>
+            </div>
+            <div class="family">
+                <label>
+                    <img src="images/ui/logo_wavve_on.png" alt="wavve on">
+                    <select id="wavveon" onchange="if(this.value){location.href=(this.value);}">
+                        <option value="" selected disabled hidden>사업자용 웨이브 가입</option>
+                        <option value="#">웨이브온 서비스 소개</option>
+                        <option value="#">웨이브온 PC방 서비스</option>
+                        <option value="#">웨이브온 도서관 서비스</option>
+                        <option value="#">웨이브온 병원 서비스</option>
+                        <option value="#">웨이브온 숙박 서비스</option>
+                        <option value="#">웨이브온 일반 서비스</option>
+                    </select>
+                </label>
+                <div class="buttons">
+                    <a href="#"><img src="images/ui/ext_facebook.png"></a>
+                    <a href="#"><img src="images/ui/ext_naverblog.png"></a>
+                </div>
+
+            </div>
+        </nav>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/imgslide.js"></script>
+    <script src="scripts/newsslide.js"></script>
+    <script src="scripts/listswipe.js"></script>
+    <script src="scripts/scroll.js"></script>
+
+</body>
+</html>

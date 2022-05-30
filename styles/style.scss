@@ -1,0 +1,441 @@
+// 웹폰트 ---------------------------------------------------------
+// @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+// @import '_font.scss';
+@font-face {
+    font-family: NotoSans;
+    src: url(./fonts/noto-sans-kr-regular.woff2) format('woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: NotoSans;
+    src: url(./fonts/noto-sans-kr-bold.woff2) format('woff2');
+    font-weight: 700;
+}
+
+// 변수 ---------------------------------------------------------
+// @import "_variables.scss";
+$blue: #1351f9;
+$shine: white;
+$light: #a5a5a5;
+$grey: #808080; 
+$dark: #2f2f2f;
+$darkblack: #1b1b1b;
+$black: #101010;
+$max-width: 1240px;
+
+@mixin flex($align:center, $justify:center, $direction:row, $wrap:nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+}
+
+@mixin font() {
+    font-family: "Noto Sans KR", "NotoSans", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+
+// 글로벌 ---------------------------------------------------------
+// @import "_global.scss";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    background: none;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    // font-family: "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    font-family: "Noto Sans KR", "NotoSans", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    color: $light;
+    font-size: 16px;
+    line-height: 1.5;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: $darkblack;
+}
+
+header, main, footer,
+section, article, aside, nav {
+    @include flex(center, start, column);
+    width: 100%;
+}
+
+main {
+    min-height: 600px;
+}
+
+nav, section {
+    width: 100%;
+    max-width: $max-width;
+    // padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+button {
+    @include font;
+}
+
+.hr {
+    width: 100%;
+    border-bottom: 1px solid $dark;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    height: 8px;
+    border-radius: 0;
+    background-color: $light;
+}
+
+// 엘리먼트 ---------------------------------------------------------
+// @import "_elements.scss";
+
+#floatbox {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+header {
+    height: 108px;
+    nav {
+        flex-direction: row;
+        &.top {
+            height: 34px;
+            justify-content: end;
+            font-size: 12px;
+            >a {
+                padding: 5px 10px;
+            }
+            >span {
+                color: $dark;
+            }
+        }
+        &.main {
+            height: 74px;
+            font-size: 20px;
+            > * {
+                @include flex(center, center);
+                height: 40px;
+            }
+            >.logo {
+                width: 111px;
+                margin-right: 80px;
+            }
+            >.menu {
+                position: relative;
+                height: inherit;
+                >li {
+                    @include flex(center, start);
+                    height: inherit;
+                    padding: 5px 10px;
+                    margin-right: 20px;
+                    &.active {
+                        color: $shine;
+                    }
+                }
+                >.item.list:hover {
+                    >.submenu {
+                        display: block;
+                    }
+                }
+                .submenu {
+                    min-width: 210px;
+                    padding: 20px;
+                    position: absolute;
+                    top: 74px;
+                    z-index: 10;
+                    display: none;
+                    background-color: $black;
+                    font-size: 14px;
+                    line-height: 34px;
+                    .hr {
+                        margin: 10px 0;
+                    }
+                    >li {
+                        a {
+                            display: block;
+                            width: 100%;
+                        }
+                        &.active *, a:hover {
+                            color: $shine;
+                        }
+                    }
+                }
+            }
+            >.search {
+                margin-left: auto;
+                &::before {
+                    content: url(../images/ui/icon_search.svg);
+                    position: relative;
+                    top: 3px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+#imgslide {
+    height: 598px;
+    max-width: none;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    .imgs {
+        @include flex(center, center);
+        width: 100%;
+        max-width: $max-width;
+        height: 508px;
+        >.item {
+            @include flex(center, center);
+            position: absolute;
+            width: 100%;
+            height: inherit;
+            // transition: transform 0.5s;
+            >img {
+                position: absolute;
+                height: inherit;
+                width: auto;
+            }
+        }
+    }
+    &.active .imgs>.item {
+        transition: transform 0.5s;
+    }
+
+    .buttons {
+        position: absolute;
+        &.nav {
+            @include flex(center, space-between);
+            top: 204px;
+            width: 100%;
+            z-index: 9;
+            .btn {
+                position: relative;
+                &.prev {
+                    left: 100px;
+                    &::before {
+                        content: url(../images/ui/ui_prev_L.png);
+                    }
+                    &:hover::before {
+                        content: url(../images/ui/ui_prev_LH.png);
+                    }
+                }
+                &.next {
+                    right: 100px;
+                    &::before {
+                        content: url(../images/ui/ui_next_L.png);
+                    }
+                    &:hover::before {
+                        content: url(../images/ui/ui_next_LH.png);
+                    }
+                }
+            }
+        }
+        &.page {
+            @include flex(center, center);
+            height: 34px;
+            bottom: 36px;
+            .btn {
+                font-size: 10px;
+                padding: 3px;
+                margin: 0 4px;
+                &.active {
+                    color: $shine;
+                }
+                &.play {
+                    padding: 0;
+                    position: relative;
+                    top: 2px;
+                }
+                &.play::before {
+                    content: url(../images/ui/icon_stop.svg);
+                }
+                &.stop::before {
+                    content: url(../images/ui/icon_play.svg);
+                }
+                &.dot::before {
+                    content: "●";
+                }
+            }
+        }
+    }
+}
+
+section.dramalist {
+    margin-bottom: 80px;
+    >.title {
+        @include flex(center, space-between);
+        width: 100%;
+        margin-bottom: 20px;
+        >label {
+            font-size: 24px;
+            color: $shine;
+        }
+        >.more {
+            &::after {
+                content: url(../images/ui/icon-arrow.svg);
+                margin-left: 5px;
+                position: relative;
+                top: 2px;
+            }
+        }
+    }
+    .list {
+        @include flex(start, start);
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 392px;
+        .items {
+            @include flex(start, center);
+            width: max-content;
+            height: inherit;
+            position: absolute;
+            transition: transform 0.5s;
+        }
+        .item {
+            @include flex(start, start, column);
+            width: 240px;
+            height: inherit;
+            &:not(:last-of-type) {
+                margin-right: 10px;
+            }
+            >.img {
+                @include flex(center, center);
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                margin-bottom: 8px;
+                &:hover img {
+                    transform: scale(105%);
+                    transition: transform 0.25s;
+                }
+            }
+            >.title {
+                width: 100%;
+                height: 24px;
+                flex-shrink: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        .buttons {
+            @include flex(center, space-between);
+            position: absolute;
+            top: 180px;
+            height: 0;
+            // transform: translateY(-50%);
+            width: 100%;
+            z-index: 9;
+            .btn {
+                position: relative;
+                transition: transform 0.25s;
+                &.prev {
+                    left: 0;
+                    transform: translateX(-100%);
+                    &::before {
+                        content: url(../images/ui/ui_prev_M.png);
+                    }
+                }
+                &.next {
+                    right: 0;
+                    transform: translateX(100%);
+                    &::before {
+                        content: url(../images/ui/ui_next_M.png);
+                    }
+                }
+                &.disabled {
+                    pointer-events: none;
+                    opacity: 0.3;
+                }
+            }
+        }
+        &:hover .buttons .btn {
+            transform: translateX(0);
+        }
+    }
+}
+
+footer {
+    border-top: 1px solid $dark;
+    padding-bottom: 100px;
+    nav {
+        flex-direction: row;
+    }
+    #newsslide {
+        height: 50px;
+        .notice {
+            margin-right: 23px;
+            padding: 0 5px;
+        }
+        .news {
+            @include flex(start, center, column);
+            height: inherit;
+            overflow: hidden;
+            position: relative;
+            flex-grow: 1;
+            background-color: $darkblack;
+            .item {
+                position: absolute;
+                transition: transform 0.5s;
+            }
+        }
+        .nav {
+            border-left: 1px solid $dark;
+            &:last-of-type {
+                border-right: 1px solid $dark;
+            }
+        }
+    }
+    .menu {
+        a:hover {
+            color: $blue;
+        }
+        .links {
+            @include flex(center, start);
+            height: 50px;
+            >a {
+                margin-right: 24px;
+            }
+        }
+        .copyright {
+            font-size: 12px;
+        }
+    }
+
+    .family {
+        display: none;
+    }
+
+}
